@@ -112,8 +112,19 @@ gdaladdo --config COMPRESS_OVERVIEW DEFLATE -ro -r average ../singletiff/2015/or
 gdaladdo --config COMPRESS_OVERVIEW DEFLATE -ro -r average ../singletiff/2015/orthofoto_2015_rgb_12_5cm_deflate.tif.ovr.ovr.ovr.ovr.ovr.ovr.ovr.ovr.ovr 2
 
 gdal_translate ../singletiff/2015/orthofoto_2015_rgb_12_5cm_deflate.tif ../singletiff/2015/orthofoto_2015_rgb_12_5cm_deflate_with_ovr.tif -co 'COPY_SRC_OVERVIEWS=YES' -co 'COMPRESS=DEFLATE' -co PREDICTOR=1 -co 'TILED=YES' -co 'BIGTIFF=YES'
+```
+
+Vergleich Predictor 2:
+```
+gdal_translate orthofoto_2015_rgb_12_5cm_deflate.tif orthofoto_2015_rgb_12_5cm_deflate_predictor2.tif -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=2 -co BIGTIFF=YES
+
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2015_rgb_12_5cm_deflate_predictor2.tif 2
+
 
 ```
+
+
+
 
 ```
 
@@ -151,6 +162,26 @@ gdaladdo --config COMPRESS_OVERVIEW DEFLATE -ro -r average ../singletiff/2016/or
 
 gdal_translate ../singletiff/2016/orthofoto_2016_rgb_12_5cm_deflate.tif ../singletiff/2016/orthofoto_2016_rgb_12_5cm_deflate_with_ovr.tif -co 'COPY_SRC_OVERVIEWS=YES' -co 'COMPRESS=DEFLATE' -co PREDICTOR=1 -co 'TILED=YES' -co 'BIGTIFF=YES'
 ```
+
+Predictor=2:
+```
+gdal_translate orthofoto_2016_rgb_12_5cm_deflate.tif orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif -co TILED=YES -co COMPRESS=DEFLATE -co PREDICTOR=2 -co BIGTIFF=YES
+
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif.ovr.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif.ovr.ovr.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif.ovr.ovr.ovr.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif.ovr.ovr.ovr.ovr.ovr.ovr.ovr.ovr.ovr 2
+
+gdal_translate orthofoto_2016_rgb_12_5cm_deflate_predictor2.tif orthofoto_2016_rgb_12_5cm_deflate_predictor2_with_ovr.tif -co 'COPY_SRC_OVERVIEWS=YES' -co 'COMPRESS=DEFLATE' -co PREDICTOR=2 -co 'TILED=YES' -co 'BIGTIFF=YES'
+
+```
+
 
 
 
