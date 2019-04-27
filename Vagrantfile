@@ -45,7 +45,8 @@ Vagrant.configure("2") do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
 
   #config.vm.synced_folder "/Volumes/LiDAR2018/", "/lidar2018"
-  config.vm.synced_folder "/Volumes/Samsung_T5/", "/Samsung_T5"
+  #config.vm.synced_folder "/Volumes/Samsung_T5/", "/Samsung_T5"
+  config.vm.synced_folder "/Volumes/2TB_WD_Elements/", "/geodata"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -56,7 +57,7 @@ Vagrant.configure("2") do |config|
   #   vb.gui = true
   #
     # Customize the amount of memory on the VM:
-    vb.memory = "12288"
+    vb.memory = "8192"
     vb.cpus = 4
     vb.customize ["modifyvm", :id, "--cableconnected1", "on"]
   end
