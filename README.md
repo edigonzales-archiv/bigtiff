@@ -256,15 +256,13 @@ gdal_translate /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2002.rgb/ch.so.agi.
 #---
 gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co APPEND_SUBDATASET=YES -co RASTER_TABLE=ch.so.agi.orthofoto_2002.rgb -co TILE_FORMAT=PNG_JPEG -of GPKG /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2002.rgb/ch.so.agi.orthofoto_2002.rgb.tif /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2002.rgb/ch.so.agi.orthofoto_2002.rgb.gpkg
 gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -oo TABLE=ch.so.agi.orthofoto_2002.rgb -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2002.rgb/ch.so.agi.orthofoto_2002.rgb.gpkg 2 4 8 16 32 64 128 256
-
-
-
 ```
 
 
 ### ch.so.agi.orthofoto_2006.rgb
 ```
 gdal_translate /geodata/Geodaten/ch.so.agi.orthofoto_2006.rgb/orthofoto_2006_rgb_12_5cm.vrt /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -co 'TILED=YES' -co 'BIGTIFF=YES'
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif 2
 
 ```
 
