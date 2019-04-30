@@ -263,6 +263,22 @@ gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -oo TABLE=ch.so.agi.orthofoto_2002.
 ```
 gdal_translate /geodata/Geodaten/ch.so.agi.orthofoto_2006.rgb/orthofoto_2006_rgb_12_5cm.vrt /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -co 'TILED=YES' -co 'BIGTIFF=YES'
 gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif.ovr.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif.ovr.ovr.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif.ovr.ovr.ovr.ovr.ovr.ovr.ovr.ovr 2
+gdal_translate /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb_with_ovr.tif -co 'COPY_SRC_OVERVIEWS=YES' -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -co 'TILED=YES' -co 'BIGTIFF=YES'
+
+# rename manually
+
+#---
+
+gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co APPEND_SUBDATASET=YES -co RASTER_TABLE=ch.so.agi.orthofoto_2006.rgb -co TILE_FORMAT=PNG_JPEG -of GPKG /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.tif /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2006.rgb/ch.so.agi.orthofoto_2006.rgb.gpkg
+
 
 ```
 
@@ -270,6 +286,22 @@ gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r
 ### ch.so.agi.orthofoto_2007.rgb
 ```
 gdal_translate /geodata/Geodaten/ch.so.agi.orthofoto_2007.rgb/orthofoto_2007_rgb_12_5cm.vrt /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -co 'TILED=YES' -co 'BIGTIFF=YES'
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif.ovr.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif.ovr.ovr.ovr.ovr.ovr.ovr.ovr 2
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif.ovr.ovr.ovr.ovr.ovr.ovr.ovr.ovr 2
+gdal_translate /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb_with_ovr.tif -co 'COPY_SRC_OVERVIEWS=YES' -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -co 'TILED=YES' -co 'BIGTIFF=YES'
+
+# rename manually
+
+#---
+
+gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co APPEND_SUBDATASET=YES -co RASTER_TABLE=ch.so.agi.orthofoto_2007.rgb -co TILE_FORMAT=PNG_JPEG -of GPKG /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.gpkg
 
 
 ```
