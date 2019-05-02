@@ -316,7 +316,12 @@ gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co APPEND_SUBDATASET=YES -co
 
 
 
+gdal_retile.py -v -r bilinear -levels 8 -ps 4096 4096 -co "TILED=YES" -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -targetDir pyramid ch.swisstopo.lk10.grau_relief.tif
+gdal_retile.py -v -r cubic -levels 8 -ps 4096 4096 -co "TILED=YES" -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -targetDir lk10_grau_relief_cubic/ ch.swisstopo.lk10.grau_relief.tif
+gdal_retile.py -v -r bilinear -levels 8 -ps 4096 4096 -co "TILED=YES" -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -targetDir lk10_farbig_relief ch.swisstopo.lk10.farbig_relief.tif
 
+
+gdal_retile.py -v -r bilinear -levels 8 -ps 4096 4096 -co "TILED=YES" -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -targetDir lidar_2014_dom_relief ch.so.agi.lidar_2014.dom_relief.tif
 
 
 
