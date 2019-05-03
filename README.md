@@ -307,6 +307,14 @@ gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co APPEND_SUBDATASET=YES -co
 ```
 
 
+### ch.swisstopo.orthofoto_2018.rgb
+```
+gdalbuildvrt -a_srs EPSG:2056 -addalpha ch.swisstopo.orthofoto_2018.rgb.vrt *.tif
+gdal_translate /geodata/swisstopo/SWISSIMAGE_LEVEL3/10cm/ch.swisstopo.orthofoto_2018.rgb.vrt /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -co 'TILED=YES' -co 'BIGTIFF=YES'
+
+
+
+```
 
 
 
@@ -315,6 +323,17 @@ gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co APPEND_SUBDATASET=YES -co
 
 
 
+
+
+
+
+
+
+
+
+
+
+## Geoserver Image Pyramid
 
 gdal_retile.py -v -r bilinear -levels 8 -ps 4096 4096 -co "TILED=YES" -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -targetDir pyramid ch.swisstopo.lk10.grau_relief.tif
 gdal_retile.py -v -r cubic -levels 8 -ps 4096 4096 -co "TILED=YES" -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -targetDir lk10_grau_relief_cubic/ ch.swisstopo.lk10.grau_relief.tif
