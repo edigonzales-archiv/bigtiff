@@ -308,9 +308,38 @@ gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co APPEND_SUBDATASET=YES -co
 
 
 ### ch.swisstopo.orthofoto_2018.rgb
+
+#### Test
+https://lists.osgeo.org/pipermail/gdal-dev/2014-August/039907.html
+
+```
+gdalbuildvrt -a_srs EPSG:2056 -addalpha test.vrt *.tif
+
+gdal_translate /geodata/test/test.vrt test1.tif -co COMPRESS=JPEG -co PHOTOMETRIC=RGB -co TILED=YES -co ALPHA=YES -co INTERLEAVE=BAND
+gdaladdo /geodata/test/test1.tif -r average 2 4 8 16 32 64
+
+
+gdal_translate /geodata/test/test.vrt test2.tif -b 1 -b 2 -b 3 -mask 4 -co TILED=YES -co COMPRESS=JPEG  -co PHOTOMETRIC=YCBCR --config GDAL_TIFF_INTERNAL_MASK YES
+#gdaladdo /geodata/test/test2.tif --config GDAL_TIFF_INTERNAL_MASK YES -r average 2 4 8 16 32 64
+
+gdaladdo --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config GDAL_TIFF_INTERNAL_MASK YES -ro /geodata/test/test2.tif  -r average 2
+gdal_translate /geodata/test/test2.tif test2_with_ovr.tif -b 1 -b 2 -b 3 -mask 4 -co TILED=YES -co COMPRESS=JPEG  -co PHOTOMETRIC=YCBCR -co 'COPY_SRC_OVERVIEWS=YES' --config GDAL_TIFF_INTERNAL_MASK YES
+
+
+
+
+
+```
+
+
+
+
+
+
 ```
 gdalbuildvrt -a_srs EPSG:2056 -addalpha ch.swisstopo.orthofoto_2018.rgb.vrt *.tif
-gdal_translate /geodata/swisstopo/SWISSIMAGE_LEVEL3/10cm/ch.swisstopo.orthofoto_2018.rgb.vrt /geodata/Geodaten_BigTIFF/ch.so.agi.orthofoto_2007.rgb/ch.so.agi.orthofoto_2007.rgb.tif -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -co 'TILED=YES' -co 'BIGTIFF=YES'
+gdal_translate /geodata/swisstopo/SWISSIMAGE_LEVEL3/10cm/ch.swisstopo.orthofoto_2018.rgb.vrt /geodata/geodata/ch.swisstopo.orthofoto_2018.rgb/ch.swisstopo.orthofoto_2018.rgb_tmp.tif -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -co 'TILED=YES' -co 'BIGTIFF=YES'
+gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/geodata/ch.swisstopo.orthofoto_2018.rgb/ch.swisstopo.orthofoto_2018.rgb_tmp.tif 2
 
 
 
