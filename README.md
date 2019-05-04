@@ -333,6 +333,16 @@ gdal_translate /geodata/test/test2.tif test2_with_ovr.tif -b 1 -b 2 -b 3 -mask 4
 
 
 
+```
+gdalbuildvrt -addalpha ch.swisstopo.orthofoto_2018.rgb.vrt *.tif
+
+export GDAL_CACHEMAX=8192
+export GDAL_CACHEMAX=4096
+gdalwarp -tr 5 5  -of GTiff -co BIGTIFF=YES -co TILED=YES -co PROFILE=GeoTIFF -co COMPRESS=JPEG -co ALPHA=YES -co INTERLEAVE=BAND -co ALPHA=YES  -s_srs EPSG:2056 -t_srs EPSG:2056 ch.swisstopo.orthofoto_2018.rgb.vrt ch.swisstopo.orthofoto_2018.rgb_5m.tif
+
+
+
+```
 
 
 
@@ -341,6 +351,12 @@ gdalbuildvrt -a_srs EPSG:2056 -addalpha ch.swisstopo.orthofoto_2018.rgb.vrt *.ti
 gdal_translate /geodata/swisstopo/SWISSIMAGE_LEVEL3/10cm/ch.swisstopo.orthofoto_2018.rgb.vrt /geodata/geodata/ch.swisstopo.orthofoto_2018.rgb/ch.swisstopo.orthofoto_2018.rgb_tmp.tif -co 'COMPRESS=DEFLATE' -co 'PREDICTOR=2' -co 'TILED=YES' -co 'BIGTIFF=YES'
 gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r average /geodata/geodata/ch.swisstopo.orthofoto_2018.rgb/ch.swisstopo.orthofoto_2018.rgb_tmp.tif 2
 
+
+
+
+#---
+
+gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co APPEND_SUBDATASET=YES -co RASTER_TABLE=ch.swisstopo.orthofoto_2018.rgb -co TILE_FORMAT=PNG_JPEG -of GPKG /geodata/geodata/ch.swisstopo.orthofoto_2018.rgb/ch.swisstopo.orthofoto_2018.rgb_tmp.tif /geodata/geodata/ch.swisstopo.orthofoto_2018.rgb/ch.swisstopo.orthofoto_2018.rgb.gpkg
 
 
 ```
