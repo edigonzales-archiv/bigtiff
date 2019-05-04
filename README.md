@@ -340,6 +340,9 @@ export GDAL_CACHEMAX=8192
 export GDAL_CACHEMAX=4096
 gdalwarp -tr 5 5  -of GTiff -co BIGTIFF=YES -co TILED=YES -co PROFILE=GeoTIFF -co COMPRESS=JPEG -co ALPHA=YES -co INTERLEAVE=BAND -co ALPHA=YES  -s_srs EPSG:2056 -t_srs EPSG:2056 ch.swisstopo.orthofoto_2018.rgb.vrt ch.swisstopo.orthofoto_2018.rgb_5m.tif
 
+gdalwarp -tr 5 5 -r bilinear  -co 'BIGTIFF=YES' -co 'TILED=YES' -co 'PROFILE=GeoTIFF'  -co 'INTERLEAVE=PIXEL' -co 'COMPRESS=JPEG' --config GDAL_TIFF_INTERNAL_MASK YES -s_srs EPSG:2056 -t_srs EPSG:2056 ch.swisstopo.orthofoto_2018.rgb.vrt ch.swisstopo.orthofoto_2018.rgb_5m.tif
+
+
 
 
 ```
