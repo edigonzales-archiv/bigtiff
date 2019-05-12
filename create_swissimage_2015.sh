@@ -3,8 +3,8 @@
 BASEPATH=/geodata/ch.swisstopo.swissimage_2015.rgb/
 OUTPATH=/geodata/output/ch.swisstopo.swissimage_2015.rgb/
 
-#gdalbuildvrt $OUTPATH/swissimage_2015_rgb.vrt $BASEPATH/*.tif
-#gdal_translate $OUTPATH/swissimage_2015_rgb.vrt $OUTPATH/ch.swisstopo.swissimage_2015.rgb_tmp.tif -a_srs EPSG:2056 -co 'COMPRESS=JPEG' -co 'PHOTOMETRIC=YCBCR' -co 'TILED=YES' -co 'BIGTIFF=YES'
+gdalbuildvrt $OUTPATH/swissimage_2015_rgb.vrt $BASEPATH/*.tif
+gdal_translate $OUTPATH/swissimage_2015_rgb.vrt $OUTPATH/ch.swisstopo.swissimage_2015.rgb_tmp.tif -a_srs EPSG:2056 -co 'COMPRESS=JPEG' -co 'PHOTOMETRIC=YCBCR' -co 'TILED=YES' -co 'BIGTIFF=YES'
 
 gdaladdo --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR -ro -r average $OUTPATH/ch.swisstopo.swissimage_2015.rgb_tmp.tif 2
 gdaladdo --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR -ro -r average $OUTPATH/ch.swisstopo.swissimage_2015.rgb_tmp.tif.ovr 2
