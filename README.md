@@ -360,6 +360,7 @@ gdaladdo --config COMPRESS_OVERVIEW DEFLATE --config PREDICTOR_OVERVIEW 2 -ro -r
 #---
 
 gdal_translate --config OGR_SQLITE_SYNCHRONOUS OFF -co APPEND_SUBDATASET=YES -co RASTER_TABLE=ch.swisstopo.orthofoto_2018.rgb -co TILE_FORMAT=PNG_JPEG -of GPKG /geodata/geodata/ch.swisstopo.orthofoto_2018.rgb/ch.swisstopo.orthofoto_2018.rgb_tmp.tif /geodata/geodata/ch.swisstopo.orthofoto_2018.rgb/ch.swisstopo.orthofoto_2018.rgb.gpkg
+gdaladdo --config OGR_SQLITE_SYNCHRONOUS OFF -oo TABLE=ch.swisstopo.orthofoto_2018.rgb -r average /geodata/geodata/ch.swisstopo.orthofoto_2018.rgb/ch.swisstopo.orthofoto_2018.rgb.gpkg 2 4 8 16 32 64 128 256 512
 
 
 ```
